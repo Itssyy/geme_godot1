@@ -1,0 +1,7 @@
+Label
+AnimationPlayer
+CollisionShape2D
+Area2D
+CharacterBody2D
+Camera2D
+StaticBody2D
