@@ -6,14 +6,14 @@ extends CharacterBody2D
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var anim = $AnimationPlayer
-@onready var attack_area = $attackarea/hert_box
+@onready var hit_box = $hit_box
 @onready var health_label = $Label
 
 var current_waypoint_index: int = 0
 var wait_timer: float = 0.0
-enum State { PATROL, WAIT, CHASE, ATTACK , DEATH }
+enum State { PATROL, WAIT, CHASE, ATTACK , DEATH , DAMAGE }
 var current_state: State = State.PATROL
-@export var attack_distance: float = 7.5
+@export var attack_distance: float = 16.0
 var push_back_distance: float = 0.2
 @export var max_health = 50
 var health = max_health
@@ -24,31 +24,35 @@ func _ready() -> void:
 	for i in range(waypoints.size()):
 		waypoints[i] = to_global(waypoints[i])
 	
-	$attackarea.connect("body_entered", Callable(self, "_on_attack_area_entered"))
 	$AnimationPlayer.connect("animation_finished", Callable(self, "_on_animation_finished"))
 	_update_health_label()  # Обновляем метку при запуске
 
-func _on_attack_area_entered(body):
-	if body.has_method("take_damage") and current_state == State.ATTACK:
+
+
+func _on_hit_box_body_entered(body):
+	if body.has_method("take_damage"):
 		body.take_damage(damage)
-		print("Enemy dealt damage: ", damage)
 
-func take_damage(amount: int) -> void:
-	health -= amount
-	print("Enemy took damage: ", amount, " Health remaining: ", health)
-	_update_health_label()  # Обновляем метку при изменении здоровья
-	if health <= 0:
+func take_damage(damage):
+	health -= damage
+	health_label.text = str(health)
+	print(damage)
+	if health <=0:
 		current_state = State.DEATH
-
+	else:
+		current_state = State.DAMAGE
 func _update_health_label():
 	health_label.text = str(health)  # Обновляем текст метки
 
 func die() -> void:
-	print("Enemy died")
 	anim.play("daeth")
 	await anim.animation_finished
 	queue_free()
-
+	
+func damage_state():
+	velocity = Vector2.ZERO  # Остановить движение во время анимации
+	anim.play("hit")  # Запустить анимацию 
+	
 func _physics_process(delta: float) -> void:
 	if waypoints.is_empty():
 		print("Ошибка: Массив waypoints пуст. Добавьте точки патрулирования в инспекторе.")
@@ -66,6 +70,9 @@ func _physics_process(delta: float) -> void:
 			_attack(delta)
 		State.DEATH:
 			die()
+		State.DAMAGE:
+			damage_state()
+			
 
 func _patrol(delta: float) -> void:
 	var current_waypoint: Vector2 = waypoints[current_waypoint_index]
@@ -97,12 +104,11 @@ func _chase(delta: float) -> void:
 	var direction_to_player_x: float = player_position.x - global_position.x  # Получаем только разницу по X
 	var distance_to_player_x: float = abs(direction_to_player_x)  # Используем абсолютное значение для корректного направления
 
-	if distance_to_player_x > 200:
+	if distance_to_player_x > 500:
 		current_state = State.PATROL
 		print("Игрок потерян, возвращаюсь к патрулированию")
 	elif distance_to_player_x <= attack_distance:
 		current_state = State.ATTACK
-		print("Игрок в зоне атаки. Начинаю атаку!")
 	else:
 		velocity.x = sign(direction_to_player_x) * speed  # Устанавливаем горизонтальную скорость в направлении игрока
 		velocity.y = 0  # Обнуляем вертикальную скорость
@@ -118,7 +124,7 @@ func _attack(delta: float) -> void:
 	var direction_to_player_x: float = player_position.x - global_position.x
 	var distance_to_player_x: float = abs(direction_to_player_x)
 
-	if distance_to_player_x > 15:
+	if distance_to_player_x > 150:
 		# Если игрок вышел из зоны атаки, переходим к преследованию
 		current_state = State.CHASE
 		print("Игрок вышел из зоны атаки. Переход к преследованию.")
@@ -134,6 +140,8 @@ func _on_animation_finished(anim_name: String) -> void:
 	if anim_name == "attack" and current_state == State.ATTACK:
 		# Анимация атаки закончилась, возвращаемся к преследованию
 		current_state = State.CHASE
+	if anim_name == "hit":
+		current_state = State.ATTACK
 
 func _on_detekted_zona_body_entered(body):
 	if body.name == "Player":
@@ -142,4 +150,6 @@ func _on_detekted_zona_body_entered(body):
 func _on_detekted_zona_body_exited(body):
 	if body.name == "Player":
 		current_state = State.PATROL
+
+
 

@@ -1,4 +1,8 @@
 res://Player1/player.tscn
 res://enemy/Skeleton/enemy_1.tscn
+res://lvl1/lvl1.tscn
+res://lvl1.tscn
 res://enemy/Skeleton/enemy_1.gd
+res://BG.gd
+res://bg.tscn
 res://Player1/player1.gd

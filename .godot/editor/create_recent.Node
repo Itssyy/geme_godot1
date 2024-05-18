@@ -1,7 +1,14 @@
-Label
+AnimatedSprite2D
+PointLight2D
+DirectionalLight2D
+LightOccluder2D
 AnimationPlayer
+ParallaxLayer
+ParallaxBackground
+TileMap
 CollisionShape2D
 Area2D
 CharacterBody2D
-Camera2D
 StaticBody2D
+Label
+Camera2D

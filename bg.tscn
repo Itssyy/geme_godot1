@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://b13v1kt6dgo6e"]
+
+[ext_resource type="Script" path="res://BG.gd" id="1_h6mtf"]
+[ext_resource type="Texture2D" uid="uid://b6xw5vgyu3q8i" path="res://lvl1/Secret-Caves-v1.2/BG-0.png" id="2_x68tc"]
+[ext_resource type="Texture2D" uid="uid://cxyclsvaacj8" path="res://lvl1/Secret-Caves-v1.2/BG-1.png" id="3_k2f7g"]
+[ext_resource type="Texture2D" uid="uid://7n1tjuegm7th" path="res://lvl1/Secret-Caves-v1.2/BG-2.png" id="4_nd4q8"]
+[ext_resource type="Texture2D" uid="uid://cgjv5ijodm6b0" path="res://lvl1/Secret-Caves-v1.2/BG-3.png" id="5_s417k"]
+
+[node name="BG" type="ParallaxBackground"]
+scale = Vector2(0.4, 0.4)
+transform = Transform2D(0.4, 0, 0, 0.4, 0, 0)
+script = ExtResource("1_h6mtf")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+position = Vector2(-5, -322.5)
+motion_mirroring = Vector2(1155, 0)
+metadata/_edit_group_ = true
+
+[node name="Bg-0" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(574, 322.5)
+scale = Vector2(1.8, 1.79167)
+texture = ExtResource("2_x68tc")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+position = Vector2(-5, -322.5)
+motion_mirroring = Vector2(1155, 0)
+metadata/_edit_group_ = true
+
+[node name="Bg-1" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(574.5, 323.5)
+scale = Vector2(1.81406, 1.78611)
+texture = ExtResource("3_k2f7g")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+position = Vector2(-5, -322.5)
+motion_mirroring = Vector2(1155, 0)
+metadata/_edit_group_ = true
+
+[node name="Bg-2" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(575.5, 326)
+scale = Vector2(1.80469, 2.592)
+texture = ExtResource("4_nd4q8")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+position = Vector2(-5, -322.5)
+motion_mirroring = Vector2(1155, 0)
+metadata/_edit_group_ = true
+
+[node name="Bg-3" type="Sprite2D" parent="ParallaxLayer4"]
+position = Vector2(561.5, 326.5)
+scale = Vector2(1.90781, 1.80278)
+texture = ExtResource("5_s417k")
