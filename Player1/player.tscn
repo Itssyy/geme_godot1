@@ -1,7 +1,11 @@
-[gd_scene load_steps=78 format=3 uid="uid://bl2d1i36wpq8l"]
+[gd_scene load_steps=83 format=3 uid="uid://bl2d1i36wpq8l"]
 
 [ext_resource type="Script" path="res://Player1/player1.gd" id="1_ggykc"]
 [ext_resource type="Texture2D" uid="uid://b135uiaf4ifdu" path="res://Player1/darkK/Sprites/Attack2.png" id="2_g5ypf"]
+[ext_resource type="Texture2D" uid="uid://dus07muib48vd" path="res://Player1/ProgressBar_05/BarV5_Bar.png" id="3_f02bq"]
+[ext_resource type="Script" path="res://Player1/hit_box.gd" id="3_hvlr5"]
+[ext_resource type="Script" path="res://Player1/HpBar.gd" id="5_bq7u7"]
+[ext_resource type="Texture2D" uid="uid://bgajx0u6akgfi" path="res://Player1/ProgressBar_05/BarV5_ProgressBar.png" id="5_gtrrw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k7rny"]
 size = Vector2(22, 31)
@@ -726,10 +730,14 @@ tracks/3/keys = {
 "values": [true, false, true]
 }
 
+[sub_resource type="Animation" id="Animation_m8hc6"]
+resource_name = "dash"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gax4a"]
 _data = {
 "RESET": SubResource("Animation_xvahg"),
 "attack": SubResource("Animation_6y84a"),
+"dash": SubResource("Animation_m8hc6"),
 "death": SubResource("Animation_kdm2e"),
 "hurt": SubResource("Animation_npwrf"),
 "idle": SubResource("Animation_ba5ki"),
@@ -753,6 +761,7 @@ script = ExtResource("1_ggykc")
 position = Vector2(0, 1)
 ignore_rotation = false
 zoom = Vector2(3.2, 3.2)
+process_callback = 0
 limit_bottom = 33
 drag_bottom_margin = 0.0
 
@@ -761,23 +770,26 @@ position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_k7rny")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+modulate = Color(0.854902, 0.854902, 0.854902, 1)
 texture_filter = 1
 position = Vector2(-2, -3.00002)
 scale = Vector2(0.60507, 0.716183)
 sprite_frames = SubResource("SpriteFrames_xlwob")
-animation = &"attack"
-frame = 3
+animation = &"run"
 
 [node name="hit_box" type="Area2D" parent="Player" groups=["player_attack_area"]]
 collision_layer = 8
 collision_mask = 4
+script = ExtResource("3_hvlr5")
 
 [node name="CollisionShape2DLeft" type="CollisionShape2D" parent="Player/hit_box"]
+visible = false
 position = Vector2(-12, -4)
 shape = SubResource("CapsuleShape2D_dflva")
 disabled = true
 
 [node name="CollisionShape2DRight" type="CollisionShape2D" parent="Player/hit_box"]
+visible = false
 position = Vector2(12, -5)
 shape = SubResource("CapsuleShape2D_dflva")
 disabled = true
@@ -789,29 +801,33 @@ collision_mask = 68
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/hert_box"]
+visible = false
 shape = SubResource("CapsuleShape2D_eaoji")
 disabled = true
-
-[node name="HealthLabel" type="Label" parent="Player"]
-texture_filter = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -139.0
-offset_top = -132.0
-offset_right = -111.0
-offset_bottom = -109.0
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(0.3, 0.3)
-text = "100
-"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
 libraries = {
 "": SubResource("AnimationLibrary_gax4a")
 }
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
+layer = 5
+follow_viewport_enabled = true
+
+[node name="HpBar" type="TextureProgressBar" parent="Player"]
+texture_filter = 1
+offset_left = -9.0
+offset_top = -29.0
+offset_right = 54.0
+offset_bottom = -16.0
+scale = Vector2(0.3, 0.3)
+size_flags_horizontal = 0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_under = ExtResource("3_f02bq")
+texture_progress = ExtResource("5_gtrrw")
+script = ExtResource("5_bq7u7")
 
 [connection signal="body_entered" from="Player/hit_box" to="Player" method="_on_hit_box_body_entered"]
 [connection signal="animation_finished" from="Player/AnimationPlayer" to="Player" method="_on_animation_player_animation_finished"]

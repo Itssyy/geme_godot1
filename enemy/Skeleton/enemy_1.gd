@@ -6,7 +6,7 @@ extends CharacterBody2D
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var anim = $AnimationPlayer
-@onready var hit_box = $hit_box
+@onready var hit_box = $hit_box/box
 @onready var health_label = $Label
 
 var current_waypoint_index: int = 0
@@ -17,7 +17,8 @@ var current_state: State = State.PATROL
 var push_back_distance: float = 0.2
 @export var max_health = 50
 var health = max_health
-@export var damage = 10
+@export var damage = 1
+
 
 func _ready() -> void:
 	# Преобразуем локальные координаты точек патрулирования в глобальные
@@ -138,6 +139,7 @@ func _attack(delta: float) -> void:
 
 func _on_animation_finished(anim_name: String) -> void:
 	if anim_name == "attack" and current_state == State.ATTACK:
+		hit_box.disabled = true
 		# Анимация атаки закончилась, возвращаемся к преследованию
 		current_state = State.CHASE
 	if anim_name == "hit":

@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwt5a23q6tbro"]
+
+[ext_resource type="Script" path="res://lift3.gd" id="1_q7ea4"]
+[ext_resource type="Texture2D" uid="uid://dwl757j72bl17" path="res://lvl1/Trap and Weapon/16.png" id="2_w6vdh"]
+[ext_resource type="Texture2D" uid="uid://s7kxbxgjhndh" path="res://lvl1/Trap and Weapon/07.png" id="3_fml4i"]
+
+[sub_resource type="Curve2D" id="Curve2D_ydcvo"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 33, 0, 0, 0, 0, -9, -182)
+}
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kykm7"]
+size = Vector2(37, 7)
+
+[node name="lift3" type="Path2D"]
+curve = SubResource("Curve2D_ydcvo")
+script = ExtResource("1_q7ea4")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(0, 33)
+rotation = -1.61263
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D"]
+remote_path = NodePath("../../AnimatableBody2D")
+update_rotation = false
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+position = Vector2(0, 33)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+position = Vector2(-0.5, 36.5)
+shape = SubResource("RectangleShape2D_kykm7")
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
+position = Vector2(0, 2)
+texture = ExtResource("2_w6vdh")
+
+[node name="07" type="Sprite2D" parent="AnimatableBody2D/Sprite2D"]
+position = Vector2(-0.125, -50)
+scale = Vector2(0.984375, 1.46875)
+texture = ExtResource("3_fml4i")
+
+[node name="08" type="Sprite2D" parent="AnimatableBody2D/Sprite2D"]
+position = Vector2(-1, -77)
+scale = Vector2(1, 2)
+texture = ExtResource("3_fml4i")
+
+[node name="09" type="Sprite2D" parent="AnimatableBody2D/Sprite2D/08"]
+position = Vector2(0, -14.5)
+scale = Vector2(1, 0.8125)
+texture = ExtResource("3_fml4i")
+
+[node name="10" type="Sprite2D" parent="AnimatableBody2D/Sprite2D/08/09"]
+position = Vector2(0, -20.3077)
+scale = Vector2(1, 1.53846)
+texture = ExtResource("3_fml4i")
+
+[node name="07" type="Sprite2D" parent="AnimatableBody2D/Sprite2D/08/09/10"]
+position = Vector2(0, -17.2)
+scale = Vector2(1, 1.1)
+texture = ExtResource("3_fml4i")
+
+[node name="08" type="Sprite2D" parent="AnimatableBody2D/Sprite2D/08/09/10/07"]
+position = Vector2(0, -16)
+scale = Vector2(1, 1.04545)
+texture = ExtResource("3_fml4i")

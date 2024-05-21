@@ -1,21 +1,24 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1716048953
+::res://::1716323004
+BG.gd::GDScript::-1::1716048024::0::1::::<>ParallaxBackground<>::
+bg.tscn::PackedScene::4270455238882785370::1716272211::0::1::::<><>::res://BG.gd<>uid://b6xw5vgyu3q8i::::res://lvl1/Secret-Caves-v1.2/BG-0.png<>uid://cxyclsvaacj8::::res://lvl1/Secret-Caves-v1.2/BG-1.png<>uid://7n1tjuegm7th::::res://lvl1/Secret-Caves-v1.2/BG-2.png<>uid://cgjv5ijodm6b0::::res://lvl1/Secret-Caves-v1.2/BG-3.png
+canvas_layer.tscn::PackedScene::6121913897005001239::1716174317::0::1::::<><>::uid://dus07muib48vd::::res://Player1/ProgressBar_05/BarV5_Bar.png<>uid://bgajx0u6akgfi::::res://Player1/ProgressBar_05/BarV5_ProgressBar.png<>res://Player1/HpBar.gd
 global.gd::GDScript::-1::1715938197::0::1::::<>Node<>::
 icon.svg::CompressedTexture2D::4465212392190755091::1715938197::1715938197::1::::<><>::
+lift3.gd::GDScript::-1::1716085456::0::1::::<>Path2D<>::
+lvl1.tscn::PackedScene::3499682232636444382::1716272211::0::1::::<><>::uid://bgcv0x8qgl4jy::::res://lvl1/Secret-Caves-v1.2/Tiles-and-Some-Props.png<>uid://cvd0ndobnowhu::::res://lvl1/Secret-Caves-v1.2/Water-Back.png<>uid://bl2d1i36wpq8l::::res://Player1/player.tscn<>uid://co6mxijncqnrv::::res://lvl1/Secret-Caves-v1.2/Ship-wreck.png<>uid://crsfk8r8hphj6::::res://enemy/Skeleton/enemy_1.tscn<>uid://b13v1kt6dgo6e::::res://bg.tscn<>uid://cw6l3db2n3647::::res://lvl1/Secret-Caves-v1.2/Animations/Torch-5frm.png<>uid://cwt5a23q6tbro::::res://lvl1/lift_3.tscn
 README.md::TextFile::-1::1715938197::0::1::::<><>::
-lvl1.tscn::PackedScene::3499682232636444382::1716048953::0::1::::<><>::uid://bgcv0x8qgl4jy::::res://lvl1/Secret-Caves-v1.2/Tiles-and-Some-Props.png<>uid://cvd0ndobnowhu::::res://lvl1/Secret-Caves-v1.2/Water-Back.png<>uid://bl2d1i36wpq8l::::res://Player1/player.tscn<>uid://co6mxijncqnrv::::res://lvl1/Secret-Caves-v1.2/Ship-wreck.png<>uid://crsfk8r8hphj6::::res://enemy/Skeleton/enemy_1.tscn<>uid://b13v1kt6dgo6e::::res://bg.tscn
-BG.gd::GDScript::-1::1716048024::0::1::::<>ParallaxBackground<>::
-bg.tscn::PackedScene::4270455238882785370::1716048953::0::1::::<><>::res://BG.gd<>uid://b6xw5vgyu3q8i::::res://lvl1/Secret-Caves-v1.2/BG-0.png<>uid://cxyclsvaacj8::::res://lvl1/Secret-Caves-v1.2/BG-1.png<>uid://7n1tjuegm7th::::res://lvl1/Secret-Caves-v1.2/BG-2.png<>uid://cgjv5ijodm6b0::::res://lvl1/Secret-Caves-v1.2/BG-3.png
 ::res://addons/::1715938197
 ::res://addons/AS2P/::1715938197
 InspectorConvertor.gd::GDScript::-1::1715938197::0::1::::<>EditorInspectorPlugin<>::
 NodeSelectorProperty.gd::GDScript::-1::1715938197::0::1::::<>EditorProperty<>::
 plugin.cfg::TextFile::-1::1715938197::0::1::::<><>::
 plugin.gd::GDScript::-1::1715938197::0::1::::<>EditorPlugin<>::
-::res://enemy/::1715938197
-::res://enemy/Skeleton/::1716048953
-enemy_1.gd::GDScript::-1::1716048024::0::1::::<>CharacterBody2D<>::
-enemy_1.tscn::PackedScene::6003533712750261045::1716048953::0::1::::<><>::res://enemy/Skeleton/enemy_1.gd<>uid://dno675odc6i86::::res://enemy/Skeleton/Sprite Sheets/Skeleton Walk.png<>uid://dbjdsc2pkj3tk::::res://enemy/Skeleton/Sprite Sheets/Skeleton Idle.png<>uid://bosxv4i0whmmh::::res://enemy/Skeleton/Sprite Sheets/Skeleton Attack.png<>uid://desrryskct6ln::::res://enemy/Skeleton/Sprite Sheets/Skeleton Dead.png<>uid://plwgukmakl7j::::res://enemy/Skeleton/Sprite Sheets/Skeleton Hit.png
+::res://enemy/::1716323043
+pack 3 monster 1.png::CompressedTexture2D::8259484734740156275::1716323043::1716323043::1::::<><>::
+::res://enemy/Skeleton/::1716272211
+enemy_1.gd::GDScript::-1::1716271233::0::1::::<>CharacterBody2D<>::
+enemy_1.tscn::PackedScene::6003533712750261045::1716272211::0::1::::<><>::res://enemy/Skeleton/enemy_1.gd<>uid://dno675odc6i86::::res://enemy/Skeleton/Sprite Sheets/Skeleton Walk.png<>uid://dbjdsc2pkj3tk::::res://enemy/Skeleton/Sprite Sheets/Skeleton Idle.png<>uid://bosxv4i0whmmh::::res://enemy/Skeleton/Sprite Sheets/Skeleton Attack.png<>uid://desrryskct6ln::::res://enemy/Skeleton/Sprite Sheets/Skeleton Dead.png<>uid://plwgukmakl7j::::res://enemy/Skeleton/Sprite Sheets/Skeleton Hit.png<>uid://dus07muib48vd::::res://Player1/ProgressBar_05/BarV5_Bar.png<>uid://bgajx0u6akgfi::::res://Player1/ProgressBar_05/BarV5_ProgressBar.png<>res://Player1/HpBar.gd
 ::res://enemy/Skeleton/Files/::1715938197
 ::res://enemy/Skeleton/GIFS/::1715938197
 ::res://enemy/Skeleton/Sprite Sheets/::1715938197
@@ -25,7 +28,9 @@ Skeleton Hit.png::CompressedTexture2D::1076888364930113861::1715938197::17159381
 Skeleton Idle.png::CompressedTexture2D::7248244737224162056::1715938197::1715938197::1::::<><>::
 Skeleton React.png::CompressedTexture2D::13101905252463481::1715938197::1715938197::1::::<><>::
 Skeleton Walk.png::CompressedTexture2D::8102559276579251993::1715938197::1715938197::1::::<><>::
-::res://lvl1/::1716043266
+::res://lvl1/::1716272211
+lift.tscn::PackedScene::1225012190336014502::1716272211::0::1::::<><>::uid://dwl757j72bl17::::res://lvl1/Trap and Weapon/16.png<>uid://cp643lc2asb4c::::res://lvl1/Trap and Weapon/22.png
+lift_3.tscn::PackedScene::6358042076687163484::1716272211::0::1::::<><>::res://lift3.gd<>uid://dwl757j72bl17::::res://lvl1/Trap and Weapon/16.png<>uid://s7kxbxgjhndh::::res://lvl1/Trap and Weapon/07.png
 ::res://lvl1/Secret-Caves-v1.2/::1716043266
 BG-0.png::CompressedTexture2D::4611145985850965450::1716043266::1716043266::1::::<><>::
 BG-1.png::CompressedTexture2D::189319761551122171::1716043266::1716043266::1::::<><>::
@@ -39,7 +44,7 @@ Ship-wreck.png::CompressedTexture2D::5820251000551537291::1716043266::1716043266
 Tiles-and-Some-Props.png::CompressedTexture2D::2813003462476183094::1716043266::1716043266::1::::<><>::
 Water-Back.png::CompressedTexture2D::6254541536447682746::1716043266::1716043266::1::::<><>::
 Water-Front.png::CompressedTexture2D::6376623385324297655::1716043266::1716043266::1::::<><>::
-::res://lvl1/Secret-Caves-v1.2/Animations/::1716043266
+::res://lvl1/Secret-Caves-v1.2/Animations/::1716080437
 Bat-Cloesed-Eye.png::CompressedTexture2D::6688366209168964882::1716043266::1716043266::1::::<><>::
 Bat-Closing-Wings-5frm.png::CompressedTexture2D::6664210860044868091::1716043266::1716043266::1::::<><>::
 Bat-Opened-Eye.png::CompressedTexture2D::2782383504892185209::1716043266::1716043266::1::::<><>::
@@ -48,11 +53,78 @@ Torch-5frm.png::CompressedTexture2D::6381709687308656838::1716043266::1716043266
 ::res://lvl1/Secret-Caves-v1.2/BG-variations/::1716043266
 BG-2.png::CompressedTexture2D::3071834538084513061::1716043266::1716043266::1::::<><>::
 BG-3.png::CompressedTexture2D::5742879565003539307::1716043266::1716043266::1::::<><>::
-::res://Player1/::1716048953
+::res://lvl1/Trap and Weapon/::1716154252
+00 All.png::CompressedTexture2D::2592374517524241114::1716080426::1716080438::1::::<><>::
+00 All_Rocket.png::CompressedTexture2D::4867252656079508425::1716080426::1716080437::1::::<><>::
+00 Gun.png::CompressedTexture2D::1115673552942875402::1716080426::1716080437::1::::<><>::
+00.png::CompressedTexture2D::1304784967028889976::1716080426::1716080437::1::::<><>::
+01.png::CompressedTexture2D::3146710559329829215::1716080426::1716080437::1::::<><>::
+02.png::CompressedTexture2D::2493764991384544060::1716080426::1716080437::1::::<><>::
+03.png::CompressedTexture2D::7712677704823012057::1716080426::1716080437::1::::<><>::
+04.png::CompressedTexture2D::6026230185153040497::1716080426::1716080437::1::::<><>::
+05.png::CompressedTexture2D::6121531292993661852::1716080426::1716080437::1::::<><>::
+06.png::CompressedTexture2D::6101515328104446365::1716080426::1716080437::1::::<><>::
+07.png::CompressedTexture2D::1330107605140754537::1716080426::1716080437::1::::<><>::
+08.png::CompressedTexture2D::5340175959206003001::1716080426::1716080437::1::::<><>::
+09.png::CompressedTexture2D::2633274638488955505::1716080426::1716080437::1::::<><>::
+10.png::CompressedTexture2D::3411721494602323274::1716080426::1716080437::1::::<><>::
+11.png::CompressedTexture2D::78070713001189552::1716080426::1716080437::1::::<><>::
+12.png::CompressedTexture2D::937088610011161716::1716080426::1716080437::1::::<><>::
+13.png::CompressedTexture2D::7390979439588853868::1716080426::1716080437::1::::<><>::
+14.png::CompressedTexture2D::956055076078523185::1716080426::1716080437::1::::<><>::
+15.png::CompressedTexture2D::1241980364517998938::1716080426::1716080437::1::::<><>::
+16.png::CompressedTexture2D::8728122980136858808::1716080426::1716080437::1::::<><>::
+17.png::CompressedTexture2D::8486300019684155159::1716080426::1716080437::1::::<><>::
+18.png::CompressedTexture2D::3187805836732271285::1716080426::1716080437::1::::<><>::
+19.png::CompressedTexture2D::7307096961998030900::1716080426::1716080437::1::::<><>::
+20.png::CompressedTexture2D::3993042742503851860::1716080426::1716080437::1::::<><>::
+21.png::CompressedTexture2D::5287997670583738167::1716080426::1716080437::1::::<><>::
+22.png::CompressedTexture2D::5891481109426031952::1716080426::1716080437::1::::<><>::
+23.png::CompressedTexture2D::7302953618646097407::1716080426::1716080437::1::::<><>::
+24.png::CompressedTexture2D::1681046068897848510::1716080426::1716080437::1::::<><>::
+25.png::CompressedTexture2D::7856879415494071362::1716080426::1716080437::1::::<><>::
+26.png::CompressedTexture2D::3154628640095169719::1716080426::1716080437::1::::<><>::
+27.png::CompressedTexture2D::8731551091444552452::1716080426::1716080437::1::::<><>::
+28.png::CompressedTexture2D::2530120740773605814::1716080426::1716080437::1::::<><>::
+29.png::CompressedTexture2D::8961155075026272516::1716080426::1716080437::1::::<><>::
+30.png::CompressedTexture2D::5115813421364134680::1716080426::1716080437::1::::<><>::
+31.png::CompressedTexture2D::3112803435157863016::1716080426::1716080437::1::::<><>::
+32.png::CompressedTexture2D::5879593655782515478::1716080426::1716080437::1::::<><>::
+Arrow_Double_Jump.png::CompressedTexture2D::8685268977202736832::1716080426::1716080437::1::::<><>::
+Be_Spear.png::CompressedTexture2D::5834242341761582424::1716080426::1716080437::1::::<><>::
+Be_Xich.png::CompressedTexture2D::2218223583003394554::1716080426::1716080437::1::::<><>::
+Bomb.png::CompressedTexture2D::552474598784272936::1716080426::1716080437::1::::<><>::
+Brick1.png::CompressedTexture2D::5909764704783025722::1716080426::1716080437::1::::<><>::
+FallingPlatfrom.png::CompressedTexture2D::6827679750856817513::1716080426::1716080437::1::::<><>::
+FallingRock.png::CompressedTexture2D::1873407709517763046::1716080426::1716080437::1::::<><>::
+Fan.png::CompressedTexture2D::548087861847065479::1716080426::1716080437::1::::<><>::
+Fire.png::CompressedTexture2D::3810394408332021992::1716080426::1716080437::1::::<><>::
+FireBox.png::CompressedTexture2D::8018186809844149547::1716080426::1716080437::1::::<><>::
+Jumper.png::CompressedTexture2D::5950687178877739843::1716080426::1716080437::1::::<><>::
+Matxich2.png::CompressedTexture2D::1780770637109472266::1716080426::1716080437::1::::<><>::
+Matxich3.png::CompressedTexture2D::8567066975896023807::1716080426::1716080437::1::::<><>::
+Matxich.png::CompressedTexture2D::1070274118378378681::1716080426::1716080437::1::::<><>::
+Moving Platfrom_A.png::CompressedTexture2D::1249785264589881367::1716080426::1716080437::1::::<><>::
+Moving Platfrom_C.png::CompressedTexture2D::7135848831209616404::1716080426::1716080437::1::::<><>::
+Moving Platfrom_D.png::CompressedTexture2D::2846526886289116328::1716080426::1716080437::1::::<><>::
+Moving Platfrom_G.png::CompressedTexture2D::7418423457603308103::1716080426::1716080437::1::::<><>::
+Moving Platfrom_H.png::CompressedTexture2D::93622084925145238::1716080426::1716080437::1::::<><>::
+Shooter_Arrow_Trap.png::CompressedTexture2D::9162792046764215387::1716080426::1716080437::1::::<><>::
+Spear.png::CompressedTexture2D::614238140041641630::1716080426::1716080437::1::::<><>::
+SpikeBall.png::CompressedTexture2D::8392207101080824804::1716080426::1716080437::1::::<><>::
+Spike_B.png::CompressedTexture2D::991055733969134387::1716080426::1716080437::1::::<><>::
+Suriken.png::CompressedTexture2D::7627267304016660347::1716080426::1716080437::1::::<><>::
+Trap_Spike.png::CompressedTexture2D::146367072598723864::1716080426::1716080437::1::::<><>::
+Trap_Spike_Run.png::CompressedTexture2D::2878493060506046303::1716080426::1716080437::1::::<><>::
+Wood.png::CompressedTexture2D::1641699509087678743::1716080426::1716080437::1::::<><>::
+::res://Player1/::1716272582
+04.png::CompressedTexture2D::1287502685983662968::1716167721::1716167721::1::::<><>::
 Area2D.gd::GDScript::-1::1715938197::0::1::::<>Area2D<>::
-player1.gd::GDScript::-1::1715964070::0::1::::<>CharacterBody2D<>::
-player.tscn::PackedScene::3214465209570729445::1716048953::0::1::::<><>::res://Player1/player1.gd
-PlayerREFERENS.gd::GDScript::-1::1715938197::0::1::::<>CharacterBody2D<>::
+hit_box.gd::GDScript::-1::1716169967::0::1::::<>Area2D<>::
+HpBar.gd::GDScript::-1::1716269393::0::1::::<>TextureProgressBar<>::
+player1.gd::GDScript::-1::1716272582::0::1::::<>CharacterBody2D<>::
+player.tscn::PackedScene::3214465209570729445::1716272211::0::1::::<><>::res://Player1/player1.gd<>uid://b135uiaf4ifdu::::res://Player1/darkK/Sprites/Attack2.png<>uid://dus07muib48vd::::res://Player1/ProgressBar_05/BarV5_Bar.png<>res://Player1/hit_box.gd<>res://Player1/HpBar.gd<>uid://bgajx0u6akgfi::::res://Player1/ProgressBar_05/BarV5_ProgressBar.png
+PlayerREFERENS.gd::GDScript::-1::1716159564::0::1::::<>CharacterBody2D<>::
 ::res://Player1/darkK/::1716049284
 ::res://Player1/darkK/Sprites/::1716049284
 Attack1.png::CompressedTexture2D::1969228569564394172::1716049284::1716049284::1::::<><>::
@@ -63,6 +135,14 @@ Idle.png::CompressedTexture2D::3612877382392826151::1716049284::1716049284::1:::
 Jump.png::CompressedTexture2D::4494460952425523215::1716049284::1716049284::1::::<><>::
 Run.png::CompressedTexture2D::7595057226348053285::1716049284::1716049284::1::::<><>::
 Take Hit.png::CompressedTexture2D::6992816260300998355::1716049284::1716049284::1::::<><>::
+::res://Player1/ProgressBar_05/::1716167983
+BarV5_Bar.png::CompressedTexture2D::8601773455179433545::1716167983::1716167983::1::::<><>::
+BarV5_ProgressBar.png::CompressedTexture2D::2808142617104746362::1716167983::1716167983::1::::<><>::
+BarV5_ProgressBarBorder.png::CompressedTexture2D::8942490860863751381::1716167983::1716167983::1::::<><>::
+::res://Player1/ProgressBar_07/::1716158151
+BarV7_Bar.png::CompressedTexture2D::7752129292598086910::1716154241::1716154252::1::::<><>::
+BarV7_ProgressBar.png::CompressedTexture2D::2718501411042390809::1716154241::1716154252::1::::<><>::
+BarV7_ProgressBarBorder.png::CompressedTexture2D::2068167205048495665::1716154241::1716154252::1::::<><>::
 ::res://Player1/testP/::1715938197
 ::res://Player1/testP/Individual Sprites/::1715938197
 adventurer-air-attack1-00.png::CompressedTexture2D::6833107056153581654::1715938197::1715938197::1::::<><>::

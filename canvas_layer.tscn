@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cthra60k60gnn"]
+
+[ext_resource type="Texture2D" uid="uid://dus07muib48vd" path="res://Player1/ProgressBar_05/BarV5_Bar.png" id="1_iafqm"]
+[ext_resource type="Texture2D" uid="uid://bgajx0u6akgfi" path="res://Player1/ProgressBar_05/BarV5_ProgressBar.png" id="2_x8q1r"]
+[ext_resource type="Script" path="res://Player1/HpBar.gd" id="3_42vmm"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+layer = 5
+follow_viewport_enabled = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_over = ExtResource("1_iafqm")
+texture_progress = ExtResource("2_x8q1r")
+script = ExtResource("3_42vmm")

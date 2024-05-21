@@ -1,0 +1,129 @@
+[gd_scene load_steps=7 format=3 uid="uid://rpn1ig04ut3s"]
+
+[ext_resource type="Texture2D" uid="uid://dwl757j72bl17" path="res://lvl1/Trap and Weapon/16.png" id="2_643dn"]
+[ext_resource type="Texture2D" uid="uid://cp643lc2asb4c" path="res://lvl1/Trap and Weapon/22.png" id="3_sbwtw"]
+
+[sub_resource type="GDScript" id="GDScript_qtu3d"]
+script/source = "extends Node2D
+
+@export var top_position: Vector2
+@export var bottom_position: Vector2
+@export var travel_time: float = 2.0
+@export var wait_time: float = 1.0
+
+func _ready():
+	print(\"Лифт готов к работе.\")
+	$AnimationPlayer.play(\"Move\")
+	print(\"Запущена анимация 'Move'.\")
+
+func _process(delta):
+	var animation_player = $AnimationPlayer
+	var anim = animation_player.get_animation(\"Move\")
+
+	if not animation_player.is_playing():
+		print(\"Анимация завершена.\")
+		var temp = top_position
+		top_position = bottom_position
+		bottom_position = temp
+
+		print(\"Новые позиции: top_position =\", top_position, \", bottom_position =\", bottom_position)
+
+		anim.clear()
+		var track_idx = anim.add_track(Animation.TYPE_VALUE)
+		anim.track_set_path(track_idx, NodePath(\".:position\"))
+		anim.track_insert_key(track_idx, 0.0, bottom_position)
+		anim.track_insert_key(track_idx, travel_time, top_position)
+
+		print(\"Анимация обновлена.\")
+
+		await get_tree().create_timer(wait_time).timeout
+		print(\"Пауза завершена.\")
+		animation_player.play(\"Move\")
+		print(\"Запущена анимация 'Move'.\")
+		
+
+"
+
+[sub_resource type="Animation" id="Animation_drffv"]
+resource_name = "Move"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -126)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("16:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_643dn")]
+}
+
+[sub_resource type="Animation" id="Animation_g744h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("16:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_643dn")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hudlq"]
+_data = {
+"Move": SubResource("Animation_drffv"),
+"RESET": SubResource("Animation_g744h")
+}
+
+[node name="Lift" type="Node2D"]
+script = SubResource("GDScript_qtu3d")
+top_position = Vector2(1298, -10)
+bottom_position = Vector2(1298, -185)
+metadata/_edit_group_ = true
+
+[node name="16" type="Sprite2D" parent="."]
+texture = ExtResource("2_643dn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hudlq")
+}
+autoplay = "Move"
+
+[node name="22" type="Sprite2D" parent="."]
+position = Vector2(0, -64)
+scale = Vector2(1, 1.59375)
+texture = ExtResource("3_sbwtw")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1, 7)
