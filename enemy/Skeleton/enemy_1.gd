@@ -8,7 +8,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var anim = $AnimationPlayer
 @onready var hit_box = $hit_box/box
 @onready var health_label = $Label
-
+@onready var waypoints_parent: Node2D = $WaypointsParent
 var current_waypoint_index: int = 0
 var wait_timer: float = 0.0
 enum State { PATROL, WAIT, CHASE, ATTACK , DEATH , DAMAGE }

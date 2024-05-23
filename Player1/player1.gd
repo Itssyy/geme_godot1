@@ -1,8 +1,8 @@
 extends CharacterBody2D
 @export var health = 10
 @export var max_health = 10
-@export var dash_speed = 850 # Скорость рывка
-@export var dash_distance = 160 # Расстояние рывка
+@export var dash_speed = 650 # Скорость рывка
+@export var dash_distance = 100 # Расстояние рывка
 @export var dash_duration = 0.1 # Длительность рывка в секундах
 const SPEED = 200.0
 const JUMP_VELOCITY = -380.0
@@ -100,6 +100,7 @@ func move_state(delta):
 	
 func dash_state():
 	is_invincible = true
+	anim_player.play("dash")
 	var dash_direction = last_move_direction * dash_speed
 	set_collision_mask_value(3, false)
 	sprite.modulate = Color(1, 1, 1, 0.4)
@@ -108,7 +109,7 @@ func dash_state():
 	move_and_slide() 
 	await get_tree().create_timer(dash_duration).timeout 
 	sprite.modulate = Color(1, 1, 1, 1)
-
+	set_collision_mask_value(3, true)
 	is_invincible = false
 	current_state = Player_state.MOVE
 
@@ -193,3 +194,5 @@ func reset_attack_area():
 	attack_shape_left.disabled = true
 	attack_shape_right.disabled = true
 	
+func blood():
+	anim_player.play("default")

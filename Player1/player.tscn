@@ -1,6 +1,7 @@
-[gd_scene load_steps=83 format=3 uid="uid://bl2d1i36wpq8l"]
+[gd_scene load_steps=86 format=3 uid="uid://bl2d1i36wpq8l"]
 
 [ext_resource type="Script" path="res://Player1/player1.gd" id="1_ggykc"]
+[ext_resource type="Texture2D" uid="uid://dghdqogtqy350" path="res://Player1/darkK/Sprites/Run.png" id="2_cmq5g"]
 [ext_resource type="Texture2D" uid="uid://b135uiaf4ifdu" path="res://Player1/darkK/Sprites/Attack2.png" id="2_g5ypf"]
 [ext_resource type="Texture2D" uid="uid://dus07muib48vd" path="res://Player1/ProgressBar_05/BarV5_Bar.png" id="3_f02bq"]
 [ext_resource type="Script" path="res://Player1/hit_box.gd" id="3_hvlr5"]
@@ -40,6 +41,10 @@ region = Rect2(900, 0, 180, 180)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ghhuy"]
 atlas = SubResource("CompressedTexture2D_7bc8i")
 region = Rect2(1080, 0, 180, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcbhp"]
+atlas = ExtResource("2_cmq5g")
+region = Rect2(0, 0, 180, 180)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_504sw"]
 load_path = "res://.godot/imported/Death.png-d018e9f778ae0f32217ab135bba1ecc9.ctex"
@@ -274,6 +279,23 @@ animations = [{
 "loop": false,
 "name": &"attack",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hcbhp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hcbhp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hcbhp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hcbhp")
+}],
+"loop": false,
+"name": &"dash",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -513,6 +535,34 @@ tracks/1/keys = {
 "values": ["attack"]
 }
 
+[sub_resource type="Animation" id="Animation_m8hc6"]
+resource_name = "dash"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["dash"]
+}
+
 [sub_resource type="Animation" id="Animation_kdm2e"]
 length = 1.1
 tracks/0/type = "value"
@@ -730,8 +780,7 @@ tracks/3/keys = {
 "values": [true, false, true]
 }
 
-[sub_resource type="Animation" id="Animation_m8hc6"]
-resource_name = "dash"
+[sub_resource type="Animation" id="Animation_li87f"]
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gax4a"]
 _data = {
@@ -739,6 +788,7 @@ _data = {
 "attack": SubResource("Animation_6y84a"),
 "dash": SubResource("Animation_m8hc6"),
 "death": SubResource("Animation_kdm2e"),
+"default": SubResource("Animation_li87f"),
 "hurt": SubResource("Animation_npwrf"),
 "idle": SubResource("Animation_ba5ki"),
 "jump_down": SubResource("Animation_0x30s"),
@@ -772,10 +822,11 @@ shape = SubResource("RectangleShape2D_k7rny")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 modulate = Color(0.854902, 0.854902, 0.854902, 1)
 texture_filter = 1
-position = Vector2(-2, -3.00002)
+position = Vector2(-2, -4)
 scale = Vector2(0.60507, 0.716183)
 sprite_frames = SubResource("SpriteFrames_xlwob")
-animation = &"run"
+animation = &"attack"
+frame = 3
 
 [node name="hit_box" type="Area2D" parent="Player" groups=["player_attack_area"]]
 collision_layer = 8
